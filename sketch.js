@@ -1,31 +1,24 @@
-
-let moveX=110;
-var cnv;
-
-function centerCanvas() {
-  var x = (windowWidth - width) / 2;
-  var y = (windowHeight - height) / 2;
-  cnv.position(x, y);
-}
+let posX=40;
+let posY = 40;
 
 function setup() {
-  cnv = createCanvas(windowWidth, windowHeight);
-  centerCanvas();
-   background(255, 0, 200);
-  
-}
-function mousePresed(){
-  moveX=10;
+  createCanvas(windowWidth, windowHeight);
+  background(255, 0, 200);
 }
 
 function windowResized() {
-  centerCanvas();
+  resizeCanvas(windowWidth, windowHeight);
 }
- 
-function draw() {
-rect(random(120),random(220), random(255));
-rect(mouseY, mouseX, 50, 60);
-moveX=moveX+1;
- rect(50,50,20,20)
+ function draw (){
+ellipse(posX, posY, 50,50);
+ellipse(posY, posY, 50,50);
+ellipse(posY, posX, 50,50);
+posX = posX + 1;
+posY = posY + 2;
+if(posX == windowWidth){
+posX = 40;
 }
-
+if(posY == windowHeight){
+posY = 40;
+  }
+}
